@@ -17,6 +17,7 @@ Development is currently undergoing in the following areas:
 9.  Protection and security
 10. File handling
 11. Console interaction
-12. App ecosystem
+12. Graphics capabilities
+12. App system
 
 All of the above features are being implemented as system calls and background services.
