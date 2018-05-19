@@ -1,16 +1,37 @@
 #include "Arduino.h"
 #include "Vision.h"
 
-Vision::Vision(int pin)
+VisionOutput::VisionOutput(int firstpin, int secondpin)
 {
-pinMode(pin, OUTPUT); 
-D28=pin;
+pinMode(firstpin, OUTPUT);
+D13=firstpin;
+pinMode(secondpin, OUTPUT);
+D50=secondpin;
 }
 
-void Vision::OD28(bool val)
+void VisionOutput::OD13(bool val1)
 {
-if(val==0){
-  digitalWrite(D28, LOW);}
+if(val1==0){
+  digitalWrite(D13, LOW);}
 else{
-  digitalWrite(D28, HIGH);}
-} 
+  digitalWrite(D13, HIGH);}
+}
+
+void VisionOutput::OD50(bool val2)
+{
+if(val2==0){
+  digitalWrite(D50, LOW);}
+else{
+  digitalWrite(D50, HIGH);}
+}
+
+VisionInput::VisionInput(int mypin)
+{
+pinMode(mypin, INPUT);
+D22=mypin;
+}
+
+void VisionInput::ID22(int retVal)
+{
+retVal=digitalRead(D22);
+}
