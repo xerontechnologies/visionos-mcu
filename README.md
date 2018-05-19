@@ -1,4 +1,4 @@
-# Vision OS - AVR version
+# Vision OS - AVR version (Unstable)
 Vision OS version for microcontroller platforms based on Arduino.
 
 As of now, Vision OS will support the Arduino MEGA boards based on the Atmel ATmega2560 AVR. Hence, it is currently limited to the 8-bit architecture, although we are looking to expand to other boards in the near future.
