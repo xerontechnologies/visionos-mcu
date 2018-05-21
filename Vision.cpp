@@ -1,15 +1,17 @@
 #include "Arduino.h"
 #include "Vision.h"
 
-VisionOutput::VisionOutput(int firstpin, int secondpin)
+VisionOutput::VisionOutput(int firstpin, int secondpin, int pwmpin)
 {
 pinMode(firstpin, OUTPUT);
 D13=firstpin;
 pinMode(secondpin, OUTPUT);
 D50=secondpin;
+pinMode(pwmpin, OUTPUT);
+PWM2=pwmpin;
 }
-
-void VisionOutput::OD13(bool val1)
+//Digital output functions
+void VisionOutput::OD13(int val1)
 {
 if(val1==0){
   digitalWrite(D13, LOW);}
@@ -17,21 +19,32 @@ else{
   digitalWrite(D13, HIGH);}
 }
 
-void VisionOutput::OD50(bool val2)
+void VisionOutput::OD50(int val2)
 {
 if(val2==0){
   digitalWrite(D50, LOW);}
 else{
   digitalWrite(D50, HIGH);}
 }
-
+//PWM output functions
+void VisionOutput::OPWM2(int valpwm)
+{
+analogWrite(PWM2, valpwm);
+}
+//Digital input functions
 VisionInput::VisionInput(int mypin)
 {
-pinMode(mypin, INPUT);
-D22=mypin;
+pinMode(22, INPUT);
 }
 
-void VisionInput::ID22(int retVal)
+int VisionInput::ID22()
 {
-retVal=digitalRead(D22);
+retVal=digitalRead(22);
+return retVal;
+}
+
+int VisionInput::IA0()
+{
+anret=analogRead(0);
+return anret;
 }
